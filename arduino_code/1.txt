@@ -1,0 +1,18 @@
+String command = "";
+
+void setup() {
+    Serial.begin(9600);
+    pinMode(LED_BUILTIN, OUTPUT);
+}
+
+void loop() {
+    if (Serial.available() > 0) {
+        command = Serial.readStringUntil('\n');
+        if (command == "TurnOn") {
+            digitalWrite(LED_BUILTIN, HIGH); // Turn on an LED, for example
+        }
+        else if (command == "TurnOff") {
+          digitalWrite(LED_BUILTIN, LOW);
+        }
+    }
+}
