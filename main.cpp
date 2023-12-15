@@ -56,11 +56,24 @@ bool Arduino(const char* command, const char* SP) {
 }
 
 int main() {
+    while (true) {
+        std::cout << "Enter number.\n> ";
+        std::string number = "";
+        std::cin >> number;
+        Arduino(("txt_" + number).c_str(), "COM3");
+        system("cls");
+        std::cout << "Sending...";
+        Sleep(1200);
+        system("cls");
+    }
     //Zet boud op 9600
+
+    /*
     while (true) {
         Arduino("TurnOn", "COM3");
         Sleep(2000);
         Arduino("TurnOff", "COM3");
         Sleep(2000);
     }
+    */
 }
